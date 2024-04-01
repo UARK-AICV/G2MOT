@@ -21,10 +21,10 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
         }
 
         caption {
+            padding-top: 3em;
             margin-bottom: 0.5em;
             font-weight: bold;
         }
@@ -36,9 +36,13 @@
         }
 
         .checkmark {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
             color: green;
         }
         .xmark {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
             color: red;
         }
 
@@ -49,6 +53,11 @@
         .babyblue50 { background-color: #77c7ec; }
         .aureolin20 { background-color: #FDEE00; }
         .aureolin50 { background-color: #ebdd14; } /* Replace with actual color */
+
+        .sot { background-color: #84a5bb; } /* Airforce blue */
+        .mot { background-color: rgb(53%, 66%, 42%); } /* Almond */
+        .gsot { background-color: #8fd2f0; } /* Baby blue */
+        .gmot { background-color: #f4e954; } /* Aureolin */
 
         .image-container {
             display: flex;
@@ -127,205 +136,294 @@
            Dataset
         </h2>
         <table>
-            <caption>Comparison of <strong>existing datasets</strong> of SOT, MOT, GSOT, GMOT. "#" represents the quantity of the respective items. Cat., Vid., NLP denote Categories, Videos, and Textual Language Descriptions.</caption>
+            <caption>Comparison of <strong>existing datasets</strong> of SOT, MOT, GSOT, GMOT. "#" represents the quantity of the respective items. <strong>Cat.</strong>, <strong>Vid.</strong> denote Categories and Videos. <strong>Obj.</strong>: average number of objects per frame. <strong>App.</strong>: appearance similarity (%) between objects in a frame, calculated by the average cosine similarity of objects in the same frame; <strong>Den.</strong> density of objects in a frame, computed by the maximum number of objects at the same pixel. <strong>Occ.</strong>: occlusion between objects in a frame, represented by the average ratio of IoU (%) of the bounding boxes in the same frame; <strong>Mot.</strong>: motion speed of objects in a video, calculated by the average ratio of the IoU (%) of the bounding boxes in the same track in consecutive frames.</caption>
             <thead>
                 <tr>
-                    <th></th>
-                    <th><strong>Datasets</strong></th>
-                    <th><strong>NLP</strong></th>
-                    <th>#<strong>Cat.</strong></th>
-                    <th>#<strong>Vid.</strong></th>
-                    <th>#<strong>Frames</strong></th>
-                    <th>#<strong>Tracks</strong></th>
-                    <th>#<strong>Boxs</strong></th>
+                    <th>Datasets</th>
+                    <th>Task</th>
+                    <th>NLP</th>
+                    <th>#Cat.</th>
+                    <th>#Vid.</th>
+                    <th>#Frames</th>
+                    <th>#Tracks</th>
+                    <th>#Boxs</th>
+                    <th>Obj.</th>
+                    <th>App.</th>
+                    <th>Den.</th>
+                    <th>Occ.</th>
+                    <th>Mot.</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- SOT Section -->
-                <tr class="almond30">
-                    <td rowspan="5">SOT</td>
-                    <td>OTB2013~[1]</td>
-                    <td class="xmark">✖</td>
+                <tr class="sot">
+                    <td>OTB2013</td>
+                    <td>SOT</td>
+                    <td>✗</td>
                     <td>10</td>
                     <td>51</td>
                     <td>29K</td>
                     <td>51</td>
                     <td>29K</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
                 </tr>
-                <tr class="almond30">
-                    <td>VOT2017~[2]</td>
-                    <td class="xmark">✖</td>
+                <tr class="sot">
+                    <td>VOT2017</td>
+                    <td>SOT</td>
+                    <td>✗</td>
                     <td>24</td>
                     <td>60</td>
                     <td>21K</td>
                     <td>60</td>
                     <td>21K</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
                 </tr>
-                <tr class="almond30">
-                    <td>TrackingNet~[3]</td>
-                    <td class="xmark">✖</td>
+                <tr class="sot">
+                    <td>TrackingNet</td>
+                    <td>SOT</td>
+                    <td>✗</td>
                     <td>21</td>
                     <td>31K</td>
                     <td>14M</td>
                     <td>31K</td>
                     <td>14M</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
                 </tr>
-                <tr class="almond50">
-                    <td>LaSOT~[4]</td>
-                    <td class="checkmark">✔</td>
-                    <td>70</td>
-                    <td>1.4K</td>
-                    <td>3.52M</td>
-                    <td>1.4K</td>
-                    <td>3.52M</td>
-                </tr>
-                <tr class="almond50">
-                    <td>TNL2K~[5]</td>
-                    <td class="checkmark">✔</td>
-                    <td>-</td>
-                    <td>2K</td>
-                    <td>1.24M</td>
-                    <td>2K</td>
-                    <td>1.24M</td>
-                </tr>
-                <!-- GSOT Section -->
-                <tr class="asparagus30">
-                    <td rowspan="2">GSOT</td>
-                    <td>GOT-10~[6]</td>
-                    <td class="xmark">✖</td>
-                    <td>563</td>
-                    <td>10K</td>
-                    <td>1.5M</td>
-                    <td>10K</td>
-                    <td>1.5M</td>
-                </tr>
-                <tr class="asparagus30">
-                    <td>Fish~[7]</td>
-                    <td class="xmark">✖</td>
-                    <td>1</td>
-                    <td>1.6K</td>
-                    <td>527.2K</td>
-                    <td>8.25K</td>
-                    <td>516K</td>
-                </tr>
-                <!-- MOT Section -->
-                <tr class="babyblue20">
-                    <td rowspan="7">MOT</td>
-                    <td>MOT17~[8]</td>
-                    <td class="xmark">✖</td>
+                <tr class="mot">
+                    <td>MOT17</td>
+                    <td>MOT</td>
+                    <td>✗</td>
                     <td>1</td>
                     <td>14</td>
                     <td>11.2K</td>
                     <td>1.3K</td>
                     <td>0.3M</td>
+                    <td>39(35)</td>
+                    <td>62(10)</td>
+                    <td>3.85(1.50)</td>
+                    <td>14(16)</td>
+                    <td>94(11)</td>
                 </tr>
-                <tr class="babyblue20">
-                    <td>MOT20~[9]</td>
-                    <td class="xmark">✖</td>
+                <tr class="mot">
+                    <td>MOT20</td>
+                    <td>MOT</td>
+                    <td>✗</td>
                     <td>1</td>
                     <td>8</td>
                     <td>13.41K</td>
                     <td>3.45K</td>
                     <td>1.65M</td>
+                    <td>150(70)</td>
+                    <td>68(8)</td>
+                    <td>6.42(1.20)</td>
+                    <td>15(15)</td>
+                    <td>96(4)</td>
                 </tr>
-                <tr class="babyblue20">
-                    <td>Omni-MOT~[10]</td>
-                    <td class="xmark">✖</td>
+                <tr class="mot">
+                    <td>Omni-MOT</td>
+                    <td>MOT</td>
+                    <td>✗</td>
                     <td>1</td>
-                    <td>-</td>
+                    <td>--</td>
                     <td>14M+</td>
                     <td>250K</td>
                     <td>110M</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
                 </tr>
-                <tr class="babyblue20">
-                    <td>DanceTrack~[11]</td>
-                    <td class="xmark">✖</td>
+                <tr class="mot">
+                    <td>DanceTrack</td>
+                    <td>MOT</td>
+                    <td>✗</td>
                     <td>1</td>
                     <td>100</td>
                     <td>105K</td>
                     <td>990</td>
-                    <td>-</td>
+                    <td>--</td>
+                    <td>9(5)</td>
+                    <td>77(7)</td>
+                    <td>2.67(0.99)</td>
+                    <td>21(17)</td>
+                    <td>90(9)</td>
                 </tr>
-                <tr class="babyblue20">
-                    <td>TAO~[12]</td>
-                    <td class="xmark">✖</td>
+                <tr class="mot">
+                    <td>TAO</td>
+                    <td>MOT</td>
+                    <td>✗</td>
                     <td>833</td>
                     <td>2.9K</td>
                     <td>2.6M</td>
                     <td>17.2K</td>
                     <td>333K</td>
+                    <td>3(2)</td>
+                    <td>69(7)</td>
+                    <td>1.82(0.76)</td>
+                    <td>11(14)</td>
+                    <td>49(34)</td>
                 </tr>
-                <tr class="babyblue20">
-                    <td>SportMOT~[13]</td>
-                    <td class="xmark">✖</td>
+                <tr class="mot">
+                    <td>SportsMOT</td>
+                    <td>MOT</td>
+                    <td>✗</td>
                     <td>1</td>
                     <td>240</td>
                     <td>150K</td>
                     <td>3.4K</td>
                     <td>1.62M</td>
+                    <td>11(3)</td>
+                    <td>73(8)</td>
+                    <td>2.44(0.80)</td>
+                    <td>18(17)</td>
+                    <td>80(16)</td>
                 </tr>
-                <tr class="babyblue50">
-                    <td>Refer-KITTI~[14]</td>
-                    <td class="checkmark">✔</td>
+                <tr class="gsot">
+                    <td>GOT-10k</td>
+                    <td>GSOT</td>
+                    <td>✗</td>
+                    <td>563</td>
+                    <td>10K</td>
+                    <td>1.5M</td>
+                    <td>10K</td>
+                    <td>1.5M</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr class="gsot">
+                    <td>Fish</td>
+                    <td>GSOT</td>
+                    <td>✗</td>
+                    <td>1</td>
+                    <td>1.6K</td>
+                    <td>527.2K</td>
+                    <td>8.25K</td>
+                    <td>516K</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr class="gmot">
+                    <td>AnimalTrack</td>
+                    <td>GMOT</td>
+                    <td>✗</td>
+                    <td>10</td>
+                    <td>58</td>
+                    <td>24.7K</td>
+                    <td>1.92K</td>
+                    <td>429K</td>
+                    <td>17(9)</td>
+                    <td>72(8)</td>
+                    <td>3.13(1.22)</td>
+                    <td>15(15)</td>
+                    <td>91(11)</td>
+                </tr>
+                <tr class="gmot">
+                    <td>GMOT-40</td>
+                    <td>GMOT</td>
+                    <td>✗</td>
+                    <td>10</td>
+                    <td>40</td>
+                    <td>9K</td>
+                    <td>2.02K</td>
+                    <td>256K</td>
+                    <td>24(17)</td>
+                    <td>71(9)</td>
+                    <td>2.56(0.88)</td>
+                    <td>11(12)</td>
+                    <td>43(44)</td>
+                </tr>
+                <tr class="sot">
+                    <td>LaSOT</td>
+                    <td>SOT</td>
+                    <td>coarse</td>
+                    <td>70</td>
+                    <td>1.4K</td>
+                    <td>3.52M</td>
+                    <td>1.4K</td>
+                    <td>3.52M</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr class="sot">
+                    <td>TNL2K</td>
+                    <td>SOT</td>
+                    <td>coarse</td>
+                    <td>--</td>
+                    <td>2K</td>
+                    <td>1.24M</td>
+                    <td>2K</td>
+                    <td>1.24M</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr class="mot">
+                    <td>Refer-KITTI</td>
+                    <td>MOT</td>
+                    <td>coarse</td>
                     <td>2</td>
                     <td>18</td>
                     <td>6.65K</td>
                     <td>637</td>
                     <td>28.72K</td>
+                    <td>5(4)</td>
+                    <td>65(6)</td>
+                    <td>1.78(0.74)</td>
+                    <td>11(11)</td>
+                    <td>73(21)</td>
                 </tr>
-                <!-- GMOT Section -->
-                <tr class="aureolin20">
-                    <td rowspan="4">GMOT</td>
-                    <td>AnimalTrack~[15]</td>
-                    <td class="xmark">✖</td>
-                    <td>10</td>
-                    <td>58</td>
-                    <td>24.7K</td>
-                    <td>1.92K</td>
-                    <td>429K</td>
-                </tr>
-                <tr class="aureolin20">
-                    <td>GMOT-40~[16]</td>
-                    <td class="xmark">✖</td>
-                    <td>10</td>
-                    <td>40</td>
-                    <td>9K</td>
-                    <td>2.02K</td>
-                    <td>256K</td>
-                </tr>
-                <tr class="aureolin50">
-                    <td style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Refer-GMOT40 (Ours)</td>
-                    <td class="checkmark">✔</td>
-                    <td>10</td>
-                    <td>40</td>
-                    <td>9K</td>
-                    <td>2.02K</td>
-                    <td>256K</td>
-                </tr>
-                <tr class="aureolin50">
-                    <td style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Refer-Animal (Ours)</td>
-                    <td class="checkmark">✔</td>
-                    <td>10</td>
-                    <td>58</td>
-                    <td>24.7K</td>
-                    <td>1.92K</td>
-                    <td>429K</td>
+                <tr class="gmot">
+                    <td><strong>G<sup>2</sup>MOT (Ours)</strong></td>
+                    <td>GMOT</td>
+                    <td>fine</td>
+                    <td>20</td>
+                    <td>253</td>
+                    <td>157.2K</td>
+                    <td>5.84K</td>
+                    <td>1.87M</td>
+                    <td>12(5)</td>
+                    <td>74(8)</td>
+                    <td>2.65(0.95)</td>
+                    <td>18(16)</td>
+                    <td>84(14)</td>
                 </tr>
             </tbody>
         </table>
         
         <div>
-            <p>In our research, we improved two existing datasets for tracking multiple objects (GMOT-40 and AnimalTrack) by adding text descriptions. These enhanced datasets are named 'Refer-GMOT40' and 'Refer-Animal'.</p>
-            <p>'Refer-GMOT40' includes 40 videos covering 10 different types of real-world objects, with each type having 4 video sequences. 'Refer-Animal' contains 26 videos focusing on 10 common types of animals.</p>
+            <p>Combining datasets in object tracking offers strategic advantages. First, individual tracking datasets focus on specific challenges. Second, merging tracking datasets yields diverse challenges requiring tracking models to efficiently in varied scenarios. Therefore, by combining datasets, we can evaluate the tracking models' ability to deal with diverse scenarios e.g. object movements, density, similar appearance, and occlusion which are in line with the goal of the GMOT challenge. Finally, our ultimate objective is to <em>propose a new paradigm</em> for GMOT and create a <em>challenging benchmark dataset under various demanding real-world scenarios</em>.</p>
             <p>Each video in these datasets has been carefully annotated with several details:</p>
             <ul>
                 <p style="font-weight: bold; font-style: italic;">For text label:</p> 
-                <li><strong>class_name:</strong> The general category of objects being tracked.</li>
-                <li><strong>class_synonyms:</strong> Other names or terms for the class.</li>
-                <li><strong>definition:</strong> A description of the objects being tracked.</li>
-                <li><strong>include_attributes:</strong> Characteristics of the tracked objects based on what can be seen.</li>
-                <li><strong>exclude_attributes:</strong> Characteristics that identify objects within the same category that are not being tracked.</li>
-                <li><strong>caption:</strong> Descriptions of the objects being tracked. For tracking all objects in a class, the caption is in the format: "Track [visible attributes] [class name]". When tracking a specific subset, the format is: "Track [visible attributes] [class name] while excluding [untracked attributes] [class name]".</li>
+                <li><strong>class_name:</strong> Represents the common name of the object class.</li>
+                <li><strong>type (superset|subset):</strong> Indicates whether the object belongs to a "superset" category, grouping "coarse category" (e.g., horse), or a "subset" category, allowing for finer categorization (e.g., horse on ground).</li>
+                <li><strong>synonyms:</strong> Offers alternative terms or phrases for the class name.</li>
+                <li><strong>definition:</strong> Describe the object's visual characteristics.</li>
+                <li><strong>attributes:</strong> encompasses a list of attributes used to distinguish objects within the "superset".</li>
+                <li><strong>caption:</strong> Manually crafted comprehensive description providing detailed information about the tracked objects.</li>
                 <li><strong>track_path:</strong> The exact tracking path is stored separately, following the standard format for multiple object tracking challenges.</li>
                 <p style="font-weight: bold; font-style: italic;">For track label:</p>
                 <p>each line will contain 9 elements, seperated by commas</p>
@@ -345,16 +443,17 @@
                 <pre class="pre-container" style="border-right: 1px solid #ffffff;">
 <b>Text label for referring with specific attributes</b>
 {
-    video: "",
-    label:{
-        class_name: "",
-        class_synonyms:[],
-        definition: "",
-        include_attributes: []
-        exclude_attributes: []
-        caption: "",
-        track_path: "",
-    }
+    id: "",
+    video_id: "",
+    is_eval: "",
+    type: "",
+    superset_idx: "",
+    class_name: "",
+    synonyms:[],
+    definition: "",
+    attributes: []
+    track_path: "",
+    caption: "",
 }
                     </pre>
     

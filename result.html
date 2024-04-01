@@ -201,45 +201,17 @@
 
         /* Additional styling for checkmark and degree symbol */
         .checkmark {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            line-height: 16px;
-            border-radius: 50%;
-            font-size: 12px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: green;
+        }
+        .xmark {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: red;
         }
         .degree-symbol {
             font-style: italic;
-        }
-
-        .ablation-study-mac-sort {
-            border-collapse: collapse;
-            width: 60%; /* Adjust to 0.6 of the column width as in LaTeX */
-            margin-bottom: 0.5em;
-            margin: auto;
-        }
-        
-        .ablation-study-mac-sort th, 
-        .ablation-study-mac-sort td {
-            border: 1px solid black;
-            padding: 4pt;
-            text-align: center;
-        }
-        
-        .ablation-study-mac-sort code {
-            background-color: #f4f4f4;
-            padding: 2pt 4pt;
-        }
-        
-        .ablation-study-mac-sort strong {
-            font-weight: bold;
-        }
-        
-        .ablation-study-mac-sort .gray-text td {
-            color: gray;
         }
 
         .our-result { background-color: #f0ecec; }
@@ -286,8 +258,8 @@
             </h2>
             <div class="n-page video">
                 <p>
-                    We conduct extensive experiments to empirically prove the performance of our proposed <span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Grounded-GMOT</span>
-                    including both detection with <span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">GroundingDINO</span> and association with <span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">KAM-SORT</span> in the G<sup>2</sup>MOT problem.
+                    We conduct extensive experiments to empirically prove the performance of our proposed <b>Grounded-GMOT</b>
+                    including both detection with <b>GroundingDINO</b> and association with <b>KAM-SORT</b> in the G<sup>2</sup>MOT problem.
                 </p>
                 <!--             <video class="centered shadow" width="100%" autoplay muted loop playsinline>
                                 <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
@@ -298,7 +270,7 @@
                         </h2> --> 
                         <div class="container">
                             <div class="main-video-container">
-                                <div class="prompt">
+                                <div class="prompt" hidden>
                                     <p style="font-family: 'Courier New', monospace; font-weight: bold; text-align: center;">"Track <span style="color: orange;">red color</span> <span style="font-weight: bold; color: green;">car</span> while excluding
                                         <span style="font-weight: bold;  color: crimson;">yellow, blue, black, white color</span> <span style="font-weight: bold; color: green;">car</span>"
                                     </p>
@@ -317,7 +289,7 @@
             </h2>
         
         <p>
-            We present a detailed comparison through six tables below. The first two tables highlight the distinctions between our innovative <b><span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Open-GMOT</span></b> approach and the existing one-shot GMOT on the <b><span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Refer-GMOT</span> dataset</b>. In the subsequent four tables, we demonstrate the effectiveness and generalization of <b><span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Open-GMOT</span></b> by comparing it with other state-of-the-art fully-supervised MOT methods on <span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Refer-GMOT40</span>, <b><span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">Refer-Animal</span></b>, <b>DanceTrack</b> and <b>MOT20 datasets</b>. We also conduct an ablation study on the parameter <b>&theta; (theta)</b>, which measures the similarity between two vectors and plays a crucial role in adeptly balancing between motion and appearance during tracking using <b><span style=" font-weight: bold; font-family: 'Courier New', Courier, monospace;">MAC-SORT</span>.</b>
+            We present a detailed comparison through six tables below. The first table highlights the distinctions between our innovative <b>Grounded-GMOT</b> approach and the existing one-shot GMOT and Yolov8 on the <b>G<sup>2</sup>MOT dataset</b>. The second table shows the superior of our KAM-SORT tracker compare to other SOTA methods. Next, we evaluate the performance of our method under various settings in the third table. In the subsequent four tables, we demonstrate the effectiveness and generalization of <b>KAM-SORT</b> by comparing it with other state-of-the-art MOT methods on <b>MOT20 datasets</b>. We also conduct an ablation study on the parameter <b>&theta; (theta)</b>, which measures the similarity between two vectors and <b>&alpha; (alpha)</b> which for uncertainty revision during tracking using <b>KAM-SORT</b> in fifth and sixth table, respectively.</b>
         </p>
 
         <table class="gmot-tracking-comparison">
@@ -717,7 +689,7 @@
                 <tr>
                     <th>Exp.</th>
                     <th>Appearance-Motion Balance</th>
-                    <th>Kaman++</th>
+                    <th>Kalman++</th>
                     <th>HOTA ↑</th>
                     <th>MOTA ↑</th>
                     <th>IDF1 ↑</th>
@@ -728,8 +700,8 @@
             <tbody>
                 <tr>
                     <td>#1</td>
-                    <td>✗</td>
-                    <td>✗</td>
+                    <td class="xmark">✖</td>
+                    <td class="xmark">✖</td>
                     <td>40.53</td>
                     <td>46.12</td>
                     <td>43.08</td>
@@ -738,8 +710,8 @@
                 </tr>
                 <tr>
                     <td>#2</td>
-                    <td>✗</td>
-                    <td>✓</td>
+                    <td class="xmark">✖</td>
+                    <td class="checkmark">✔</td>
                     <td>41.90</td>
                     <td>46.35</td>
                     <td>45.27</td>
@@ -748,8 +720,8 @@
                 </tr>
                 <tr>
                     <td>#3</td>
-                    <td>✓</td>
-                    <td>✗</td>
+                    <td class="checkmark">✔</td>
+                    <td class="xmark">✖</td>
                     <td>43.03</td>
                     <td>46.60</td>
                     <td>47.12</td>
@@ -758,8 +730,8 @@
                 </tr>
                 <tr>
                     <td>#4</td>
-                    <td>✓</td>
-                    <td>✓</td>
+                    <td class="checkmark">✔</td>
+                    <td class="checkmark">✔</td>
                     <td>43.03</td>
                     <td>46.60</td>
                     <td>47.13</td>
