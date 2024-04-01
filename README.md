@@ -1,1 +1,1 @@
-# rebuttal repo for Open-GMOT (IJCAI24)
+# rebuttal repo for Open-GMOT (ECCV24)
