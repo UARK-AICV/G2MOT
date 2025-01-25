@@ -1,1 +1,1 @@
-# repo for Open-GMOT (ACCV24)
+# repo for G2MOT (ACCV24)
