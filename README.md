@@ -1,1 +1,1 @@
-# rebuttal repo for Open-GMOT (ACCV24)
+# repo for Open-GMOT (ACCV24)
