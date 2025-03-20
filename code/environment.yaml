@@ -1,4 +1,4 @@
-name: tpgmot
+name: g2mot
 channels:
   - nvidia
   - pytorch
